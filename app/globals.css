@@ -1,8 +1,22 @@
 @import "tailwindcss";
 
+/*###############
+*Color Variants*
+
+light bg: slate-300 / #e2e8f0
+dark bg: slate-900 / #0f172b
+bg light accent: slate-400 / #90a1b9
+bg dark accent: gray-950 / #030712
+accent: sky-500 / #2b7fff
+error: rose-500 / #ff2056
+warning: amber-300 / #ffd230
+success: green-500 / #00c950
+*/
+
 :root {
   --background: #ffffff;
   --foreground: #171717;
+  --accent: #181825;
 }
 
 @theme inline {
@@ -14,7 +28,7 @@
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #2a212c;
+    --background: #0f172b;
     --foreground: #ededed;
   }
 }
