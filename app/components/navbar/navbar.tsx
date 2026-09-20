@@ -1,14 +1,25 @@
 "use client";
 
 import NavItem from "./nav-item";
+import IconInteractable from "./icon-interactable";
 
 export default function NavBar() {
   return (
-    <div className="flex bg-background-accent rounded px-4 py-4">
-      <NavItem content="FS IMP" href="/" />
-      <NavItem content="Tür Bot" href="" onClick={() => console.log("Klick")} />
-      <NavItem content="Aktuelles" href="/news" />
-      <NavItem content="Nextcloud" href="" />
+    <div className="grid grid-cols-[1fr_auto_1fr] items-center rounded bg-background-accent px-4">
+      <div className="justify-self-start">
+        <IconInteractable href="/" />
+      </div>
+
+      <div className="flex gap-6">
+        <NavItem content="Aktuelles" href="/news" />
+        <NavItem content="Nextcloud" href="/nextcloud" />
+        <NavItem content="Erstsemester" href="/first-semester" />
+        <NavItem content="Q&A" href="/q-a" />
+      </div>
+
+      <div className="justify-self-end">
+        DoorState{/* TODO: Add DoorState here! */}
+      </div>
     </div>
   );
 }

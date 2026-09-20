@@ -15,7 +15,7 @@ export default function NavItem({ content, href, onClick }: NavItemProps) {
   console.log(isActive);
   return (
     <div
-      className={`px-2 ${isActive ? "border-b-2 border-accent" : ""}`}
+      className={`px-2 ${isActive ? "border-b-2 border-accent" : ""} font-bold`}
       onClick={onClick}
     >
       {href ? <a href={href}>{content}</a> : content}

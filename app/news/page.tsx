@@ -5,6 +5,7 @@ export default function NewsPage() {
   return (
     <div>
       <NavBar />
+      Aktuelle News
     </div>
   );
 }

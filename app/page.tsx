@@ -5,6 +5,7 @@ export default function Home() {
   return (
     <div>
       <NavBar />
+      Start
       {/* <div className="items-center">
         Wilkommen in der Fachschat IMP (Medientechnologie)!
       </div>
