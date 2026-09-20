@@ -51,7 +51,7 @@ export default function DoorStateDisplay({ stateData }: { stateData: "open" | "c
 			className={"m-4 bg-transparent w-30 h-10 border-2 border-solid rounded-md font-bold flex justify-center items-center uppercase" + stateClass}
 			style={stateStyle}
 			aria-label={
-				state ? `Door is ${state}`
+				state.data ? `Door is ${state.data}`
 				: isUnavailable ?
 					"Door state unavailable"
 				:	"Connecting to door"
