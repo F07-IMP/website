@@ -1,5 +1,3 @@
-import Image from "next/image";
-import NavBar from "../components/navbar/navbar";
 import Hero from "../components/hero/hero";
 import InfoCard from "../components/info-card/info-card";
 
