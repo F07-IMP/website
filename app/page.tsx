@@ -1,7 +1,7 @@
 import Image from "next/image";
-import NavBar from "./components/navbar/navbar";
-import Hero from "./components/hero/hero";
-import InfoCard from "./components/info-card/info-card";
+import NavBar from "../components/navbar/navbar";
+import Hero from "../components/hero/hero";
+import InfoCard from "../components/info-card/info-card";
 
 export default function Home() {
 	return (
