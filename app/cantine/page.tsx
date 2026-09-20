@@ -1,6 +1,6 @@
-import type { Meal } from "../types/meal";
+import type { Meal } from "../../types/meal";
 
-import MealPlanCard from "../components/meal-plan/meal-plan-card";
+import MealPlanCard from "../../components/meal-plan/meal-plan-card";
 
 export default async function page() {
   const meals = await getMealsForDate("2026-09-21");
