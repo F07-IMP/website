@@ -3,9 +3,9 @@ import MealPlan from "../../components/meal-plan/meal-plan";
 
 export default function Dashboard() {
 	return (
-		<div className="grid grid-cols-1 md:grid-cols-2 w-full md:px-100 gap-2">
-			<MealPlan />
+		<div className="grid grid-cols-1 md:grid-cols-2 w-full md:px-175 gap-2">
 			<DBIntegration />
+			<MealPlan />
 		</div>
 	);
 }
