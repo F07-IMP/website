@@ -1,6 +1,11 @@
 export type Meal = {
   name: string;
-  price: string;
+  prices: {
+    students: number | null;
+    employees: number | null;
+    pupils: number | null;
+    others: number | null;
+  };
   category: string;
   notes: Record<string, string>;
 };
