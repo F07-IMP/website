@@ -12,10 +12,10 @@ export default function IconInteractable({ href }: IconInteractableProps) {
 			className="flex items-center gap-1"
 		>
 			<Image
-				src="/icons/logo.png"
+				src="/icons/FSMT_Logo.svg"
 				alt=""
-				width={32}
-				height={32}
+				width={48}
+				height={48}
 			/>
 			<div>
 				<p className="text-[22px] font-bold leading-tight">Fachschaft</p>
