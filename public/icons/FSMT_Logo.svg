@@ -1,0 +1,28 @@
+<svg width="600" height="600" viewBox="0 0 600 600" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g clip-path="url(#clip0_50_42)">
+<g id="Repeat_inner" data-figma-trr="r8u2-0f">
+<path d="M455.343 103.589C494.789 103.589 526.765 135.566 526.766 175.011V234.53L293.698 234.53L424.639 103.589H455.343Z" fill="url(#paint0_linear_50_42)"/>
+<path d="M73.2343 103.602V103.589H73.2471L73.2343 103.602Z" fill="url(#paint1_linear_50_42)"/>
+</g>
+<use xlink:href="#Repeat_inner" transform="translate(300 -124.264) rotate(45)"/>
+<use xlink:href="#Repeat_inner" transform="translate(600 1.31134e-05) rotate(90)"/>
+<use xlink:href="#Repeat_inner" transform="translate(724.264 300) rotate(135)"/>
+<use xlink:href="#Repeat_inner" transform="translate(600 600) rotate(-180)"/>
+<use xlink:href="#Repeat_inner" transform="translate(300 724.264) rotate(-135)"/>
+<use xlink:href="#Repeat_inner" transform="translate(-3.57746e-06 600) rotate(-90)"/>
+<use xlink:href="#Repeat_inner" transform="translate(-124.264 300) rotate(-45)"/>
+</g>
+<defs>
+<linearGradient id="paint0_linear_50_42" x1="73.2343" y1="169.059" x2="526.766" y2="169.059" gradientUnits="userSpaceOnUse">
+<stop offset="0.307692" stop-color="#151D2F"/>
+<stop offset="1" stop-color="#3F9777"/>
+</linearGradient>
+<linearGradient id="paint1_linear_50_42" x1="73.2343" y1="169.059" x2="526.766" y2="169.059" gradientUnits="userSpaceOnUse">
+<stop offset="0.307692" stop-color="#151D2F"/>
+<stop offset="1" stop-color="#3F9777"/>
+</linearGradient>
+<clipPath id="clip0_50_42">
+<rect width="600" height="600" fill="white"/>
+</clipPath>
+</defs>
+</svg>
