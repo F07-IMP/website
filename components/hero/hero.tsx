@@ -13,17 +13,19 @@ export default function Hero() {
 				alt=""
 				className="block h-auto w-full"
 			/>
-			<div className="absolute inset-0 grid grid-cols-1 items-center gap-8 px-8 md:grid-cols-2 md:px-32">
-				<div>
-					<h1 className="text-[64px] font-bold">Fachschaft</h1>
-					<h2 className="text-[32px] font-medium leading-tight">Medientechnologie</h2>
-					<p className="max-w-sm text-[18px] leading-tight">
+			<div className="absolute inset-0 grid grid-cols-1 items-center gap-8 px-8 md:grid-cols-2 md:px-32 py-[5%] 2xl:py-[10%]">
+				<div className="h-full flex flex-col justify-between">
+					<div>
+						<h1 className="text-[64px] font-bold">Fachschaft</h1>
+						<h2 className="text-[32px] font-medium leading-tight">Medientechnologie</h2>
+					</div>
+					<p className="max-w-sm text-[20px] tracking-wide font-light leading-tight">
 						Willkommen an der Fachschaft Medientechnologie, der TH Köln. Hier gibt es Informationen und Nützliches rund ums Studium der
 						Medientechnologie!
 					</p>
 				</div>
-				<nav className="justify-self-end">
-					<ul className="space-y-4 text-right font-bold text-[20px]">
+				<nav className="justify-self-end h-full">
+					<ul className="space-y-4 text-right font-bold text-[20px] h-full flex flex-col justify-between">
 						<li>
 							<a
 								href="/news"
