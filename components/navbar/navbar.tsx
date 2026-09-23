@@ -6,7 +6,7 @@ import DoorStateDisplay from "./door-state-display";
 
 export default function NavBar() {
 	return (
-		<div className="grid grid-cols-[1fr_auto_1fr] items-center rounded bg-background-accent px-4">
+		<div className="grid grid-cols-[1fr_auto_1fr] items-center rounded bg-background-accent py-1 px-2 md:px-8">
 			<div className="justify-self-start">
 				<IconInteractable href="/" />
 			</div>
