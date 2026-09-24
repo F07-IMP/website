@@ -8,7 +8,7 @@ export default function page() {
                 Keine Sorge, wir nicht. Also, was ist zum Studienstart an der TH
                 nützlich zu wissen?
             </h2> */}
-            <FirstSemesterInfo />
+            {/* <FirstSemesterInfo /> */}
         </div>
     );
 }
