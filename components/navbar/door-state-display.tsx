@@ -1,5 +1,3 @@
-"use client";
-
 import { useEffect, useState } from "react";
 import { LockOpenIcon, LockCloseIcon, ServerOfflineIcon, LoadingIcon } from "../../lib/svgs";
 
@@ -18,7 +16,9 @@ export default function DoorStateDisplay() {
 		const timeoutId = window.setTimeout(() => controller.abort(), 3000);
 
 		try {
-			const response = await fetch("/api/door-state", { signal: controller.signal }); // TODO: change to actual API endpoint
+			const response = await fetch("api/door-state", {
+				signal: controller.signal,
+			});
 
 			if (!response.ok) {
 				setLoading(false);
@@ -27,7 +27,8 @@ export default function DoorStateDisplay() {
 			}
 
 			const data = await response.json();
-			setState(data.state);
+			console.log(data);
+			setState(data);
 		} catch (error) {
 			if (error instanceof Error && error.name === "AbortError") {
 				setTimedOut(true);
@@ -62,14 +63,23 @@ export default function DoorStateDisplay() {
 	const stateStyle =
 		state ?
 			state === "open" ?
-				{ boxShadow: "0 0 5px var(--color-success) inset", textShadow: "0 0 20px var(--color-success)" }
-			:	{ boxShadow: "0 0 5px var(--color-error) inset", textShadow: "0 0 20px var(--color-error)" }
-		:	{ boxShadow: "0 0 5px var(--color-warning) inset", textShadow: "0 0 20px var(--color-warning)" };
+				{
+					boxShadow: "0 0 5px var(--color-success) inset",
+					textShadow: "0 0 20px var(--color-success)",
+				}
+			:	{
+					boxShadow: "0 0 5px var(--color-error) inset",
+					textShadow: "0 0 20px var(--color-error)",
+				}
+		:	{
+				boxShadow: "0 0 5px var(--color-warning) inset",
+				textShadow: "0 0 20px var(--color-warning)",
+			};
 
 	return (
 		<button
 			onClick={() => void fetchDoorState()}
-			className={"m-4 bg-transparent w-30 h-10 border-2 border-solid rounded-md font-bold flex justify-center items-center uppercase" + stateClass}
+			className={"bg-transparent w-30 h-10 border-2 border-solid rounded-md font-bold flex justify-center items-center uppercase" + stateClass}
 			style={stateStyle}
 			aria-label={
 				state ? `Door is ${state}`
@@ -81,7 +91,7 @@ export default function DoorStateDisplay() {
 			<Icon
 				className={loading ? "animate-spin" : "mr-1"}
 				strokeWidth={2.75}
-				size={20}
+				size={16}
 			/>
 			{state || ""}
 		</button>

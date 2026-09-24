@@ -9,9 +9,10 @@ export default function IconInteractable({ href }: IconInteractableProps) {
 	return (
 		<Link
 			href={href}
-			className="flex items-center gap-1"
+			className="flex items-center gap-1 group/icon"
 		>
 			<Image
+				className="group-hover/icon:animate-spin"
 				src="/icons/FSMT_Logo.svg"
 				alt=""
 				width={48}
