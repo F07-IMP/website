@@ -1,12 +1,6 @@
-import QACard from "../../components/q-a-card";
-import MarkdownPage from "../../components/markdown-component";
-import Link from "next/link";
-
 import fs from "node:fs/promises";
 import path from "node:path";
-import MDSearchTree from "../../components/md-organization/md-search-tree";
-import { MDSearchTreeEntry } from "../../types/md-search-tree-entry";
-import { processIssues } from "next/dist/shared/lib/turbopack/utils";
+import MDSearchTreeContainer from "../../components/md-organization/md-search-tree-container";
 
 export type FileTreeNode = {
     name: string;
@@ -52,7 +46,11 @@ export default async function page() {
     // TODO: Load clicked Component
     return (
         <div className="fixed left-4 top-1/2 -translate-y-1/2">
-            <MDSearchTree tree={tree} />
+            <MDSearchTreeContainer tree={tree} />
         </div>
     );
+}
+
+function handleEntryClick(node: FileTreeNode) {
+    console.log("Selected: ", node.name);
 }
