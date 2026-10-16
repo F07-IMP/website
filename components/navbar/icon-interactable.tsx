@@ -9,7 +9,7 @@ export default function IconInteractable({ href }: IconInteractableProps) {
 	return (
 		<Link
 			href={href}
-			className="flex items-center gap-1 group/icon"
+			className="flex w-fit items-center gap-1 group/icon"
 		>
 			<Image
 				className="group-hover/icon:animate-spin"
@@ -18,7 +18,7 @@ export default function IconInteractable({ href }: IconInteractableProps) {
 				width={48}
 				height={48}
 			/>
-			<div>
+			<div className="hidden md:flex flex-col gap-0.5">
 				<p className="text-[22px] font-bold leading-tight">Fachschaft</p>
 				<p className="text-[14px] font-medium leading-tight">Medientechnologie</p>
 			</div>
