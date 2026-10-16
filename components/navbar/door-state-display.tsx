@@ -1,3 +1,5 @@
+"use client";
+
 import { useEffect, useState } from "react";
 import { LockOpenIcon, LockCloseIcon, ServerOfflineIcon, LoadingIcon } from "../../lib/svgs";
 
@@ -7,59 +9,50 @@ export default function DoorStateDisplay() {
 	const [state, setState] = useState<DoorState>();
 	const [loading, setLoading] = useState(false);
 	const [timedOut, setTimedOut] = useState(false);
-
-	const fetchDoorState = async () => {
-		setState(undefined);
-		setLoading(true);
-		setTimedOut(false);
-		const controller = new AbortController();
-		const timeoutId = window.setTimeout(() => controller.abort(), 3000);
-
-		try {
-			const response = await fetch("api/door-state", {
-				signal: controller.signal,
-			});
-
-			if (!response.ok) {
-				setLoading(false);
-				setTimedOut(true);
-				throw new Error("Request failed!");
-			}
-
-			const data = await response.json();
-			console.log(data);
-			setState(data);
-		} catch (error) {
-			if (error instanceof Error && error.name === "AbortError") {
-				setTimedOut(true);
-			} else {
-				console.error("Error fetching door state:", error);
-			}
-		} finally {
-			window.clearTimeout(timeoutId);
-			setLoading(false);
-		}
-	};
+	const [connectionKey, setConnectionKey] = useState(0);
 
 	useEffect(() => {
-		const requestId = window.setTimeout(() => void fetchDoorState(), 0);
+		const events = new EventSource("/api/door-state");
 
-		return () => window.clearTimeout(requestId);
-	}, []);
+		events.onopen = () => {
+			setLoading(false);
+			setTimedOut(false);
+		};
+
+		events.onmessage = (event) => {
+			const data = JSON.parse(event.data);
+			if (data.error) {
+				setTimedOut(true);
+				setState(undefined);
+			} else {
+				setState(data.state);
+			}
+		};
+
+		events.onerror = () => {
+			setTimedOut(true);
+			setState(undefined);
+			events.close();
+		};
+
+		return () => {
+			events.close();
+		};
+	}, [connectionKey]);
 
 	const Icon =
-		state ?
-			state === "open" ?
-				LockOpenIcon
-			:	LockCloseIcon
-		: timedOut ? ServerOfflineIcon
-		: LoadingIcon;
+		loading ? LoadingIcon
+		: state === "open" ? LockOpenIcon
+		: state === "closed" ? LockCloseIcon
+		: ServerOfflineIcon;
+
 	const stateClass =
 		state ?
 			state === "open" ?
 				" text-success border-success"
 			:	" text-error border-error"
 		:	" text-warning border-warning";
+
 	const stateStyle =
 		state ?
 			state === "open" ?
@@ -78,7 +71,7 @@ export default function DoorStateDisplay() {
 
 	return (
 		<button
-			onClick={() => void fetchDoorState()}
+			onClick={() => {}}
 			className={"bg-transparent w-30 h-10 border-2 border-solid rounded-md font-bold flex justify-center items-center uppercase" + stateClass}
 			style={stateStyle}
 			aria-label={

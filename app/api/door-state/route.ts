@@ -1,28 +1,55 @@
-const DOOR_API_URL = "http://192.168.1.241:8000/data";
+export const runtime = "nodejs";
 
-export async function GET() {
-	const controller = new AbortController();
-	const timeoutId = setTimeout(() => controller.abort(), 3000);
+const DOOR_API_URL = "ws://192.168.1.241:8000/ws";
+const encoder = new TextEncoder();
 
-	try {
-		const response = await fetch(DOOR_API_URL, {
-			signal: controller.signal,
-			cache: "no-store",
-		});
+function normalizeState(message: string) {
+	const data = JSON.parse(message);
 
-		if (!response.ok) {
-			return Response.json({ error: "Door API request failed" }, { status: response.status });
-		}
+	return data?.state ? data.state.toLowerCase() : undefined;
+}
 
-		const data = await response.json();
-		return Response.json(data ? data.state.slice(4).toLowerCase() : undefined);
-	} catch (error) {
-		if (error instanceof Error && error.name === "AbortError") {
-			return Response.json({ error: "Door API timed out" }, { status: 502 });
-		}
-		console.log(error);
-		return Response.json({ error: "Door API is unavailable" }, { status: 502 });
-	} finally {
-		clearTimeout(timeoutId);
-	}
+export async function GET(request: Request) {
+	const stream = new ReadableStream({
+		start(controller) {
+			const send = (data: unknown) => {
+				controller.enqueue(encoder.encode(`data: ${JSON.stringify(data)}\n\n`));
+			};
+
+			const socket = new WebSocket(DOOR_API_URL);
+
+			socket.addEventListener("open", () => {});
+
+			socket.addEventListener("message", (event) => {
+				try {
+					const state = normalizeState(event.data);
+					send({ state });
+				} catch {
+					send({ error: "Failed to parse message" });
+				}
+			});
+
+			socket.addEventListener("error", () => {
+				send({ error: "Door API is unavailable" });
+				controller.close();
+			});
+
+			socket.addEventListener("close", () => {
+				controller.close();
+			});
+
+			request.signal.addEventListener("abort", () => {
+				socket.close();
+				controller.close();
+			});
+		},
+	});
+
+	return new Response(stream, {
+		headers: {
+			"Content-Type": "text/event-stream",
+			"Cache-Control": "no-cache",
+			Connection: "keep-alive",
+		},
+	});
 }
