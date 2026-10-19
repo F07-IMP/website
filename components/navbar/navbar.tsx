@@ -6,12 +6,10 @@ import DoorStateDisplay from "./door-state-display";
 
 export default function NavBar() {
 	return (
-		<div className="grid grid-cols-[1fr_auto_1fr] items-center rounded bg-background-accent py-1 px-2 md:px-8">
-			<div className="justify-self-start">
-				<IconInteractable href="/" />
-			</div>
+		<div className="flex w-full justify-between items-center h-[6vh] py-1 px-2 md:px-8  bg-transparent md:bg-background-accent">
+			<IconInteractable href="/" />
 
-			<div className="flex gap-6">
+			<div className="gap-4 hidden md:flex items-baseline">
 				<NavItem
 					content="Aktuelles"
 					href="/news"
