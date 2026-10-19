@@ -41,19 +41,21 @@ function MobileMenu() {
 	const [open, setOpen] = useState(false);
 
 	return (
-		<button
-			className="flex px-2 h-10 items-center gap-1 group/icon text-accent"
-			onClick={() => setOpen(!open)}
-		>
-			<Image
-				src="/icons/FSMT_Logo.svg"
-				loading="eager"
-				alt="Logo der Fachschaft Medientechnologie"
-				width={32}
-				height={32}
-				className="group-hover/icon:animate-spin"
-			/>
-			<BurgerMenuIcon strokeWidth={2.5} />
+		<div>
+			<button
+				className="flex px-2 h-10 items-center gap-1 group/icon text-accent"
+				onClick={() => setOpen((current) => !current)}
+			>
+				<Image
+					src="/icons/FSMT_Logo.svg"
+					loading="eager"
+					alt="Logo der Fachschaft Medientechnologie"
+					width={32}
+					height={32}
+					className="group-hover/icon:animate-spin"
+				/>
+				<BurgerMenuIcon strokeWidth={2.5} />
+			</button>
 			{open && (
 				<div className="absolute top-[6vh] left-0 w-full h-[94vh] bg-gray-950/50 z-50">
 					<div className="flex flex-col gap-2 p-4 bg-background text-text">
@@ -80,6 +82,6 @@ function MobileMenu() {
 					</div>
 				</div>
 			)}
-		</button>
+		</div>
 	);
 }
