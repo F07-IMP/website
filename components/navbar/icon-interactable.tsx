@@ -5,6 +5,7 @@ import Link from "next/link";
 import { BurgerMenuIcon } from "../../lib/svgs";
 import { useWindowSize } from "../../lib/hooks/use-window-size";
 import { useState } from "react";
+import NavItem from "./nav-item";
 
 type IconInteractableProps = { href: string };
 
@@ -55,42 +56,27 @@ function MobileMenu() {
 			<BurgerMenuIcon strokeWidth={2.5} />
 			{open && (
 				<div className="absolute top-[6vh] left-0 w-full h-[94vh] bg-gray-950/50 z-50">
-					<div className="flex flex-col gap-2 p-4 bg-background">
-						<Link
+					<div className="flex flex-col gap-2 p-4 bg-background text-text">
+						<NavItem
 							href="/"
-							className="font-bold text-lg flex w-full items-center justify-center text-text"
-							onClick={() => setOpen(false)}
-						>
-							Home
-						</Link>
-						<Link
+							content="Home"
+						/>
+						<NavItem
 							href="/news"
-							className="font-bold text-lg flex w-full items-center justify-center text-text"
-							onClick={() => setOpen(false)}
-						>
-							Aktuelles
-						</Link>
-						<Link
+							content="Aktuelles"
+						/>
+						<NavItem
 							href="/nextcloud"
-							className="font-bold text-lg flex w-full items-center justify-center text-text"
-							onClick={() => setOpen(false)}
-						>
-							Nextcloud
-						</Link>
-						<Link
+							content="Nextcloud"
+						/>
+						<NavItem
 							href="/first-semester"
-							className="font-bold text-lg flex w-full items-center justify-center text-text"
-							onClick={() => setOpen(false)}
-						>
-							Erstsemester
-						</Link>
-						<Link
+							content="Erstsemester"
+						/>
+						<NavItem
 							href="/q-a"
-							className="font-bold text-lg flex w-full items-center justify-center text-text"
-							onClick={() => setOpen(false)}
-						>
-							Q&A
-						</Link>
+							content="Q&A"
+						/>
 					</div>
 				</div>
 			)}
