@@ -57,7 +57,7 @@ function MobileMenu() {
 				<BurgerMenuIcon strokeWidth={2.5} />
 			</button>
 			{open && (
-				<div className="absolute top-[6vh] left-0 w-full h-[94vh] bg-gray-950/50 z-50">
+				<div className="absolute top-12.5 left-0 w-full h-[calc(100vh-50px)] bg-gray-950/50 z-50">
 					<div className="flex flex-col gap-2 p-4 bg-background text-text">
 						<NavItem
 							href="/"
