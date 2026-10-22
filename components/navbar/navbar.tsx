@@ -6,7 +6,7 @@ import DoorStateDisplay from "./door-state-display";
 
 export default function NavBar() {
 	return (
-		<div className="flex w-full justify-between items-center h-[6vh] py-1 px-2 md:px-8  bg-transparent md:bg-background-accent">
+		<div className="flex w-full justify-between items-center h-12.5 py-1 px-2 md:px-8  bg-transparent md:bg-background-accent">
 			<IconInteractable href="/" />
 
 			<div className="gap-4 hidden md:flex items-baseline">
