@@ -19,7 +19,7 @@ success: green-500 / #00c950
 :root {
 	--accent: #3f9777;
 	--background: #ffffff;
-	--background-accent: #ffffff;
+	--background-accent: #f0f0f0;
 	--text: #272727;
 	--error: #b23131;
 	--warning: #e8c441;
