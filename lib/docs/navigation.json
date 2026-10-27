@@ -1,0 +1,68 @@
+[
+  {
+    "type": "directory",
+    "level": 0,
+    "name": "First Semester",
+    "path": "/home/fruit/repositories/website/markdown/first-semester",
+    "items": [
+      {
+        "type": "file",
+        "level": 1,
+        "name": "Fs 1",
+        "path": "/home/fruit/repositories/website/markdown/first-semester/fs-1.txt"
+      },
+      {
+        "type": "file",
+        "level": 1,
+        "name": "Fs 2",
+        "path": "/home/fruit/repositories/website/markdown/first-semester/fs-2.txt"
+      },
+      {
+        "type": "file",
+        "level": 1,
+        "name": "Fs 3",
+        "path": "/home/fruit/repositories/website/markdown/first-semester/fs-3.txt"
+      }
+    ]
+  },
+  {
+    "type": "directory",
+    "level": 0,
+    "name": "Important Services",
+    "path": "/home/fruit/repositories/website/markdown/important-services",
+    "items": [
+      {
+        "type": "file",
+        "level": 1,
+        "name": "Is 1",
+        "path": "/home/fruit/repositories/website/markdown/important-services/is-1.txt"
+      },
+      {
+        "type": "file",
+        "level": 1,
+        "name": "Is 2",
+        "path": "/home/fruit/repositories/website/markdown/important-services/is-2.txt"
+      },
+      {
+        "type": "file",
+        "level": 1,
+        "name": "Is 3",
+        "path": "/home/fruit/repositories/website/markdown/important-services/is-3.txt"
+      }
+    ]
+  },
+  {
+    "type": "directory",
+    "level": 0,
+    "name": "Q&a",
+    "path": "/home/fruit/repositories/website/markdown/Q&A",
+    "items": [
+      {
+        "type": "file",
+        "level": 1,
+        "name": "Qa 1",
+        "path": "/home/fruit/repositories/website/markdown/Q&A/qa-1.txt"
+      }
+    ]
+  }
+]
