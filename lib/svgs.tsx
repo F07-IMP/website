@@ -145,3 +145,43 @@ export function BurgerMenuIcon({ className, size, strokeWidth, ...props }: IconP
 		</svg>
 	);
 }
+
+export function ChevronDown({ className, size, strokeWidth, ...props }: IconProps) {
+	return (
+		<svg
+			xmlns="http://www.w3.org/2000/svg"
+			width={size || 24}
+			height={size || 24}
+			viewBox="0 0 24 24"
+			fill="none"
+			stroke="#ffffff"
+			strokeWidth={strokeWidth || 2}
+			strokeLinecap="round"
+			strokeLinejoin="round"
+			className={"lucide lucide-chevron-down preview-icon" + (className ? " " + className : "")}
+			{...props}
+		>
+			<path d="m6 9 6 6 6-6" />
+		</svg>
+	);
+}
+
+export function ChevronUp({ className, size, strokeWidth, ...props }: IconProps) {
+	return (
+		<svg
+			xmlns="http://www.w3.org/2000/svg"
+			width={size || 24}
+			height={size || 24}
+			viewBox="0 0 24 24"
+			fill="none"
+			stroke="#ffffff"
+			strokeWidth={strokeWidth || 2}
+			strokeLinecap="round"
+			strokeLinejoin="round"
+			className={"lucide lucide-chevron-up preview-icon" + (className ? " " + className : "")}
+			{...props}
+		>
+			<path d="m18 15-6-6-6 6" />
+		</svg>
+	);
+}
