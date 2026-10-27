@@ -77,10 +77,10 @@ export function parseContentDir(contentDir: string): ContentNode[] {
 }
 
 export function generateNavigation() {
-	console.log("Generating navigation...");
+	console.log("[nav-gen] generating...");
 	const contentDir = path.join(process.cwd(), "markdown");
 	const navigation = parseContentDir(contentDir);
 
-	fs.writeFileSync(path.join(process.cwd(), "/lib/docs/navigation.json"), JSON.stringify(navigation, null, 2));
-	console.log("Navigation generated successfully");
+	fs.writeFileSync(path.join(process.cwd(), "lib/docs/navigation.json"), JSON.stringify(navigation, null, 2));
+	console.log("[nav-gen] done!");
 }
