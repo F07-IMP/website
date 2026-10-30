@@ -12,8 +12,17 @@ function normalizeState(message: string) {
 export async function GET(request: Request) {
 	const stream = new ReadableStream({
 		start(controller) {
+			let streamClosed = false;
+
 			const send = (data: unknown) => {
+				if (streamClosed || controller.desiredSize === null) return;
 				controller.enqueue(encoder.encode(`data: ${JSON.stringify(data)}\n\n`));
+			};
+
+			const closeStream = () => {
+				if (streamClosed || controller.desiredSize === null) return;
+				streamClosed = true;
+				controller.close();
 			};
 
 			const socket = new WebSocket(DOOR_API_URL);
@@ -31,16 +40,15 @@ export async function GET(request: Request) {
 
 			socket.addEventListener("error", () => {
 				send({ error: "Door API is unavailable" });
-				controller.close();
 			});
 
 			socket.addEventListener("close", () => {
-				controller.close();
+				closeStream();
 			});
 
 			request.signal.addEventListener("abort", () => {
 				socket.close();
-				controller.close();
+				closeStream();
 			});
 		},
 	});
